@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+:root{
+  --font-family: 'Roboto', sans-serif;
+  --primary: #546de5; //corn_flower https://flatuicolors.com/palette/ru
+  --secondary:#778beb; //softblue
+  --accent:#e5546d;
+  --lightgray:#ddd;
+  --text-regular:#444;
+}
+ul{
+  list-style: none;
+}
+img{
+  max-width: 100%;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+*{
+margin:0 ;
+padding: 0;
+box-sizing: border-box;
+}
+
+body{
+  font-family: var(--font-family);
+  color: var(--text-regular);
+}
