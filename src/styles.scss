@@ -93,3 +93,84 @@ body{
 .d2 {
   border: 1px solid green;
 }
+
+// layout
+
+.container {
+  max-width: 1200px;
+  display: block;
+  margin: auto;
+  padding: 20px;
+}
+.d-flex {
+  display: flex;
+}
+
+.m-20 {
+  margin: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+  // theme
+
+.list-primary {
+  li {
+    padding: 10px 15px;
+    border: 1px solid var(--lightgray);
+    border-top: 0;
+    &:hover {
+      background-color: var(--primary);
+      color: white;
+      cursor: pointer;
+    }
+    transition: all 0.4s;
+  }
+  li:first-child {
+    border-top: 1px solid var(--lightgray);
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+  li:last-child {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+  }
+}
+
+.btn {
+  padding: 10px 15px;
+  background-color: white;
+  border: 0;
+  border-radius: 3px;
+  font-weight: 700;
+  cursor: pointer;
+  &-primary {
+    background-color: var(--primary);
+    color: white;
+    &:hover {
+      background-color: var(--secondary);
+    }
+    transition: background-color 0.4s;
+  }
+}
+.flex-fill {
+  flex: 1 1 auto;
+}
+
+.flex-50 {
+  flex: 1 1 50%;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.pr-10 {
+  padding-right: 10px;
+}
+
+.pl-10 {
+  padding-left: 10px;
+}
+
