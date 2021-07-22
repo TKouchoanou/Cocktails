@@ -173,4 +173,12 @@ body{
 .pl-10 {
   padding-left: 10px;
 }
+.selected{
+  background-color: var(--primary);
+  color: white;
+}
 
+.not-selected{
+  background-color: white;
+  color: var(--text-regular);
+}
