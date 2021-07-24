@@ -3,11 +3,11 @@
 >
   <a href="#" class="logo p-20"> Cocktails </a>
   <ul>
-    <li>
-      <a href="#"> Recettes </a>
+    <li routerLink="cocktails" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+       Recettes
     </li>
-    <li>
-      <a href="#"> Ingredients </a>
+    <li [routerLink]="['panier']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}">
+    Ingredients
     </li>
   </ul>
 </nav>
