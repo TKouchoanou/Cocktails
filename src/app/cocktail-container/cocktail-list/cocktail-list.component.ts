@@ -7,15 +7,11 @@ import {Cocktail} from "../../shared/interfaces/cocktail.interface";
 })
 export class CocktailListComponent implements OnInit {
   @Input() cocktails! :Cocktail[];
-  @Output() changeCocktail:EventEmitter <Cocktail>= new EventEmitter<Cocktail>();
-  @Input() selectedCoktail!:Cocktail;
 
   constructor() { }
 
   ngOnInit(): void {
   }
-  selectedCocktail(cocktail:Cocktail){
-    this.changeCocktail.emit(cocktail);
-  }
+
 
 }

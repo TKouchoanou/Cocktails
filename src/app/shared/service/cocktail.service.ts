@@ -13,4 +13,13 @@ export class CocktailService {
   selectedCocktail(cocktail:Cocktail){
     this.selectedCocktail$.next(cocktail);
   }
+  getCocktail(index:number | string|null){
+
+      if ( typeof index ==='number' || typeof index==='string'){
+        return  this.cocktails$.value[+index];
+      }
+      else{
+        return this.cocktails$.value[0];
+      }
+  }
 }
