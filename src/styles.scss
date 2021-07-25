@@ -153,6 +153,9 @@ body{
     }
     transition: background-color 0.4s;
   }
+  &-secondary {
+    background-color: #ddd;
+  }
 }
 .flex-fill {
   flex: 1 1 auto;
@@ -223,4 +226,18 @@ body{
 
 .active {
   background-color: var(--secondary);
+}
+
+input {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 8px 15px;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+hr {
+  margin: 20px 0px;
+  border-top: 1px solid #ddd;
 }

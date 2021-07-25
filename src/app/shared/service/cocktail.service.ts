@@ -14,12 +14,29 @@ export class CocktailService {
     this.selectedCocktail$.next(cocktail);
   }
   getCocktail(index:number | string|null){
-
       if ( typeof index ==='number' || typeof index==='string'){
+        if(this.cocktails$.value.length>+index)
         return  this.cocktails$.value[+index];
       }
-      else{
         return this.cocktails$.value[0];
-      }
+  }
+  public addCocktail(cocktail: Cocktail): number {
+    let cocktails = this.cocktails$.value;
+    let length= cocktails.push(cocktail);
+    this.cocktails$.next(cocktails);
+    return length-1;
+  }
+
+  public editCocktail(editedCocktail: Cocktail): void {
+    const value = this.cocktails$.value;
+    this.cocktails$.next(
+      value.map((cocktail: Cocktail) => {
+        if (cocktail.name === editedCocktail.name) {
+          return editedCocktail;
+        } else {
+          return cocktail;
+        }
+      })
+    );
   }
 }
