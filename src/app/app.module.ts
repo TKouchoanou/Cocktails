@@ -10,6 +10,7 @@ import { SelectedDirective } from './shared/directives/selected.directive';
 import { PanierContainerComponent } from './panier-container/panier-container.component';
 import { IngredientListComponent } from './panier-container/ingredient-list/ingredient-list.component'
 import {RoutingModule} from "./routing.module";
+import { CocktailFormComponent } from './cocktail-form/cocktail-form.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {RoutingModule} from "./routing.module";
     CocktailContainerComponent,
     SelectedDirective,
     PanierContainerComponent,
-    IngredientListComponent
+    IngredientListComponent,
+    CocktailFormComponent
   ],
   imports: [
     BrowserModule,RoutingModule
