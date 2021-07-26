@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Cocktail} from "../../shared/interfaces/cocktail.interface";
-import {PanierService} from "../../shared/service/panier.service";
-import {CocktailService} from "../../shared/service/cocktail.service";
+import {Cocktail} from "../../../../shared/interfaces/cocktail.interface";
+import {PanierService} from "../../../../shared/service/panier.service";
+import {CocktailService} from "../../../../shared/service/cocktail.service";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 
 @Component({

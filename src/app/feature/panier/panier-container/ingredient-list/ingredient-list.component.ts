@@ -1,6 +1,6 @@
 import {Component, OnInit, Input, OnDestroy} from '@angular/core';
-import { Ingredient } from "../../shared/interfaces/ingredient.interface";
-import {PanierService} from "../../shared/service/panier.service";
+import { Ingredient } from "../../../../shared/interfaces/ingredient.interface";
+import {PanierService} from "../../../../shared/service/panier.service";
 import {Subscription} from "rxjs";
 @Component({
   selector: 'app-ingredient-list',

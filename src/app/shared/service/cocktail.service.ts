@@ -17,7 +17,6 @@ export class CocktailService {
   constructor(private http: HttpClient) {
     this.seed();
     this.fetchAll().subscribe();
-
   }
 
   /**

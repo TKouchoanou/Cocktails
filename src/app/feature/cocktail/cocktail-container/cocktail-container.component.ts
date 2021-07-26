@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {Cocktails} from "../shared/interfaces/cocktail.interface";
-import {CocktailService} from "../shared/service/cocktail.service";
+import {Cocktails} from "../../../shared/interfaces/cocktail.interface";
+import {CocktailService} from "../../../shared/service/cocktail.service";
 import {Observable} from "rxjs";
 
 
