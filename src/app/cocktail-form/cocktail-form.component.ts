@@ -4,6 +4,7 @@ import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 import {CocktailService} from "../shared/service/cocktail.service";
 import {Cocktail} from "../shared/interfaces/cocktail.interface";
 import {Ingredient} from "../shared/interfaces/ingredient.interface";
+import {first} from "rxjs/operators";
 
 @Component({
   selector: 'app-cocktail-form',
@@ -18,8 +19,9 @@ public cocktail!:Cocktail;
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
       const index = paramMap.get("index");
+      alert(index)
       if (index !== null) {
-        this.cocktail = this.cocktailService.getCocktail(Number(index));
+         this.cocktailService.getCocktail(index).subscribe((cocktail:Cocktail | undefined)=>{if(cocktail)this.cocktail =cocktail});
       }
       this.initForm(this.cocktail);
     });
@@ -35,11 +37,15 @@ public cocktail!:Cocktail;
   }
 
   public submit(): void {
-    let index=this.cocktailService.addCocktail(this.cocktailForm.value);
-    console.log(index)
-    this.router.navigate(["cocktails/"+index,{relatedTo:this.activatedRoute}])
+
+    if (this.cocktail && this.cocktail._id) {
+      this.cocktailService.editCocktail(this.cocktail._id,this.cocktailForm.value).pipe(first()).subscribe(this.redirectFn);
+    } else {
+      this.cocktailService.addCocktail(this.cocktailForm.value).pipe(first()).subscribe(this.redirectFn);
+    }
+
   }
-  initForm(cocktail: Cocktail={name:'copacabana',img:'https://www.destinationcocktails.fr/wp-content/uploads/2021/07/cocktail-pinacolada.jpg',description:'vide',ingredients:[]}) {
+  initForm(cocktail: Cocktail={name:'copacabana',img:'https://www.destinationcocktails.fr/wp-content/uploads/2021/07/cocktail-pinacolada.jpg',description:'Le cocktail Piña Colada puise ses origines à Puerto Rico où il a été inventé par un barman de l’hôtel Caribe Hilton en 1954. Décrétée 30 ans plus tard boisson nationale, désormais reconnu à l’échelle internationale, cet élixir doux et fruité concentre dans le verre toutes les saveurs ensoleillées des Caraïbes. Le goût de l’ananas prédomine, mais quoi de plus normal lorsque l’on sait que Piña Colada se traduit littéralement par « ananas pressé » en espagnol !',ingredients:[]}) {
     this.cocktailForm=this.fb.group({
       'name':[cocktail.name,Validators.required],
       'img':[cocktail.img,Validators.required],
@@ -53,16 +59,11 @@ public cocktail!:Cocktail;
                                quantity:[ingredient.quantity,[Validators.required,Validators.min(0)]]
                                })
   }
-//Pina Colada
-// Dans un shaker, versez les ingrédients en commençant par la dose de rhum blanc Old Nick puis en rajoutant successivement les autres. Secouez énergiquement pendant une minute afin de bien les mélanger. Servez votre cocktail dans un grand verre, sur un lit généreux de glaçons, en ayant pris soin de soigner la décoration (feuille de menthe ou morceau d’ananas coupé planté sur une pique en bois). Dégustez votre Piña Colada très fraîche.
-//
-// de rhum blanc 40° Old Nick
-// 4
-// jus d'ananas
-// 6
-// Lait de coco
-// 6
-// sirop de canne
-// 1
+
+  public get redirectFn(){
+   return (cocktail:Cocktail) => {
+      this.router.navigate(["cocktails/" + cocktail._id, {relatedTo: this.activatedRoute}])
+    }
+  }
 
 }

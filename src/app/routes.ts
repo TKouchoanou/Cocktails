@@ -12,6 +12,6 @@ export const APP_ROOT:Routes=[
                                    { path: ":index/edit", component: CocktailFormComponent },
 
                                    {path:':index',component:CocktailDetailsComponent},
-                                   {path:'',redirectTo:'0',pathMatch:'full'}]},
+                                   {path:'',redirectTo:'default',pathMatch:'full'}]},
                                    {path:'panier',component:PanierContainerComponent}
                               ];
