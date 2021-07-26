@@ -5,8 +5,9 @@ import {CocktailDetailsComponent} from "./cocktail-container/cocktail-details/co
 import {CocktailContainerComponent} from "./cocktail-container/cocktail-container.component";
 import {CocktailFormComponent} from "./cocktail-form/cocktail-form.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {RoutingModule} from "../../routing.module";
 import {FilterPipe} from "../../shared/pipes/filter.pipe";
+import {RouterModule} from "@angular/router";
+import {COCKTAIL_ROOT} from "./cocktail.routes";
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import {FilterPipe} from "../../shared/pipes/filter.pipe";
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    RoutingModule //car il y a un router-outlet on fait du sous-routing
+    RouterModule.forChild(COCKTAIL_ROOT)
   ]
 })
 export class CocktailModule { }
