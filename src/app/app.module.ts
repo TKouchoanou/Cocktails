@@ -9,20 +9,15 @@ import {RoutingModule} from "./routing.module";
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 
-//pipes
-import { FilterPipe } from './shared/pipes/filter.pipe';
-
-//directives
-import { SelectedDirective } from './shared/directives/selected.directive';
 import {CocktailModule} from "./feature/cocktail/cocktail.module";
 import {PanierModule} from "./feature/panier/panier.module";
+import {SharedModule} from "./shared/modules/shared.module";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SelectedDirective,
   ],
   imports: [
     BrowserModule,RoutingModule,HttpClientModule,CocktailModule,PanierModule
